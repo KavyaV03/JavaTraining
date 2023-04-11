@@ -3,6 +3,8 @@ package com.task;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.Scanner;
 
 public class MainLambda {
 	public static void main(String[] args) {
@@ -58,7 +60,21 @@ public class MainLambda {
 		 }
 //		 li.forEach(lis->System.out.println(lis));
 		 new OtherFI().biPredict();
-		
+		 
+		 
+		 Predicate<PredicateClass> auth= u->u.userName.equals("Kavya") && u.pwd.equals("DH123");
+	        Scanner sc= new Scanner(System.in);
+	        System.out.println("Enter User Name:");
+	        String userName=sc.next();
+	        System.out.println("Enter Password:");
+	        String pwd=sc.next();
+	        PredicateClass user=new PredicateClass(userName,pwd);
+	        
+	        if(auth.test(user)){
+	            System.out.println("Valid User"); 
+	        }
+	        else
+	         System.out.println("Invalid user");
 		
 	}
 }
