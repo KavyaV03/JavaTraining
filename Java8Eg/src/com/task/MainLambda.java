@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.Scanner;
 
+
 public class MainLambda {
 	public static void main(String[] args) {
 //		Task t = new Task();
@@ -75,6 +76,6 @@ public class MainLambda {
 	        }
 	        else
 	         System.out.println("Invalid user");
-		
+	        
 	}
 }
