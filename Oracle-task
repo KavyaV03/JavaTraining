@@ -1,0 +1,7 @@
+33. List all the Salesmen who are receiving Comm.
+    select ename,job from emp where comm IS NOT NULL;
+34. List all the Salesmen of the Dept 30 whose Comm. Is more than their Salary.
+    select ename,job from emp where deptno=30 AND comm > sal;
+35. Generate all the 3 digit numbers.
+    select ename,sal from emp where sal>99 AND sal<1000;
+     select ename,sal from emp where BETWEEN 100 AND 999;
