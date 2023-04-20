@@ -1,0 +1,34 @@
+CREATE TABLE EMPTABLE AS SELECT * FROM EMP;
+SELECT * FROM EMPTABLE;
+SET SERVEROUTPUT  ON
+create or replace function GET_SERVICE_YRS(eno in number)
+return number
+is
+    srvyear number;
+begin
+    select trunc(months_between(sysdate,hiredate)/12) year into srvyear from EMPTABLE where empno=eno;
+    return srvyear;
+    EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+    EXECUTE DBMS_OUTPUT.PUT_LINE(get_service_yrs(999))
+--    RAISE_APPLICATION_ERROR(-20348, 'There is no employee with the specified ID');
+end;
+/
+BEGIN
+    DBMS_OUTPUT.PUT_LINE ('Total no. of years of experience1: ' || GET_SERVICE_YRS(999) );
+END;
+/
+
+DECLARE
+    c number;
+BEGIN
+    c := GET_SERVICE_YRS(1219);
+    dbms_output.put_line('Total no. of years of experience: ' || c);
+END; 
+/
+
+
+begin
+    DBMS_OUTPUT.PUT_LINE ('Approximately .... ' || get_service_yrs(7369) || ' years');
+end;
+/
